@@ -23,8 +23,8 @@
           <h2>Schedule an Appointment</h2>
         </div>
         <div class="container-fluid">
-          <div class="bg-light row">
-            <form id="patientInformation" class="card p-3 m-5 col">
+          <div class="bg-light row g-2 p-5">
+            <form id="patientInformation" class="card p-3 col mr-3">
               <h3 class="text-center">Patient Information</h3>
               <div class="d-flex flex-column my-2">
                 <label for="org" class="form-label">Organization</label>
@@ -81,7 +81,7 @@
                 <button type="button" class="btn btn-success" id="estimates">Get Estimates</button>
               </div>
             </form>
-            <div id="map" class="card m-5 col-lg-6"
+            <div id="map" class="card col ml-3"
               style="background-position: center; background-image: url('./resources/images/GoogleMap.webp'); height: 400px;">
             </div>
           </div>
@@ -95,7 +95,7 @@
 </body>
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script>
-  
+
   function resizeMap() {
     let width = $("#map").width() + "px";
     $("#map").height(width);
