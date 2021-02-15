@@ -11,77 +11,83 @@
 
   </style>
 </head>
-<body>
-  <main class="d-flex flex-row">
-    <div id="navigation">
 
-    </div>
-    <div class="flex-grow-1">
-      <div class="card p-3">
-        <h2>Schedule an Appointment</h2>
+<body>
+  <main>
+    <div class="d-flex flex-row">
+      <div id="navigation">
+
       </div>
-      <div class="container-fluid">
-        <div class="bg-light row">
-          <form id="patientInformation" class="card p-3 m-3 col">
-            <h3 class="text-center">Patient Information</h3>
-            <div class="d-flex flex-column my-2">
-              <label for="org" class="form-label">Organization</label>
-              <input type="text" id="org" name="org" class="form-control" required>
-            </div>
-            <div class="d-flex flex-column my-2">
-              <label for="tel" class="form-label">Phone Number</label>
-              <input type="tel" id="tel" name="tel" class="form-control" required>
-            </div>
-            <div class="d-flex flex-column my-2">
-              <label for="fname" class="form-label">First Name</label>
-              <input type="text" id="fname" name="fname" class="form-control" required>
-            </div>
-            <div class="d-flex flex-column my-2">
-              <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="lname" class="form-control" required>
-            </div>
-            <div class="d-flex flex-column my-2">
-              <label for="fileNumber">File Number</label>
-              <input type="text" id="fileNumber" class="form-control" name="fileNumber">
-            </div>
-            <h3 class="text-center mt-2">Appointment Information</h3>
-            <div class="my-2">
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="tripDirection" id="oneWay">
-                <label for="oneWay" class="form-check-label">One Way</label>
+      <div class="flex-grow-1 bg-light">
+        <div class="card p-3">
+          <h2>Schedule an Appointment</h2>
+        </div>
+        <div class="container-fluid">
+          <div class="bg-light row">
+            <form id="patientInformation" class="card p-3 m-5 col">
+              <h3 class="text-center">Patient Information</h3>
+              <div class="d-flex flex-column my-2">
+                <label for="org" class="form-label">Organization</label>
+                <input type="text" id="org" name="org" class="form-control" required>
               </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="tripDirection" id="roundTrip">
-                <label for="roundTrip" class="form-check-label">Round Trip</label>
+              <div class="d-flex flex-column my-2">
+                <label for="tel" class="form-label">Phone Number</label>
+                <input type="tel" id="tel" name="tel" class="form-control" required>
               </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="tripDirection" id="multiLeg">
-                <label for="multiLeg" class="form-check-label">Multi Leg</label>
+              <div class="d-flex flex-column my-2">
+                <label for="fname" class="form-label">First Name</label>
+                <input type="text" id="fname" name="fname" class="form-control" required>
               </div>
+              <div class="d-flex flex-column my-2">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" class="form-control" required>
+              </div>
+              <div class="d-flex flex-column my-2">
+                <label for="fileNumber">File Number</label>
+                <input type="text" id="fileNumber" class="form-control" name="fileNumber">
+              </div>
+              <h3 class="text-center mt-2">Appointment Information</h3>
+              <div class="my-2">
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" name="tripDirection" id="oneWay">
+                  <label for="oneWay" class="form-check-label">One Way</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" name="tripDirection" id="roundTrip">
+                  <label for="roundTrip" class="form-check-label">Round Trip</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" name="tripDirection" id="multiLeg">
+                  <label for="multiLeg" class="form-check-label">Multi Leg</label>
+                </div>
+              </div>
+              <div class="d-flex flex-column my-2">
+                <label for="appointmentType">Appointment Type</label>
+                <input type="text" id="appointmentType" class="form-control" name="appointmentType">
+              </div>
+              <div class="d-flex flex-column my-2">
+                <label for="arrivalAddress">Arrival Address</label>
+                <input type="text" id="arrivalAddress" class="form-control" name="arrivalAddress">
+              </div>
+              <div class="d-flex flex-column my-2">
+                <label for="destinationAddress">Destination Address</label>
+                <input type="text" id="destinationAddress" class="form-control" name="destinationAddress">
+              </div>
+              <div>
+                <label for="notesForDriver" class="form-label">Notes to Driver (Optional)</label>
+                <textarea name="notesForDriver" id="notesForDriver" class="form-control" rows="5"></textarea>
+              </div>
+              <div class="mt-2 d-flex justify-content-center p-1" style="height: 100%;">
+                <button type="button" class="btn btn-success" id="estimates">Get Estimates</button>
+              </div>
+            </form>
+            <div id="map" class="card m-5 col-lg-6"
+              style="background-position: center; background-image: url('./resources/images/GoogleMap.webp'); height: 400px;">
             </div>
-            <div class="d-flex flex-column my-2">
-              <label for="appointmentType">Appointment Type</label>
-              <input type="text" id="appointmentType" class="form-control" name="appointmentType">
-            </div>
-            <div class="d-flex flex-column my-2">
-              <label for="arrivalAddress">Arrival Address</label>
-              <input type="text" id="arrivalAddress" class="form-control" name="arrivalAddress">
-            </div>
-            <div class="d-flex flex-column my-2">
-              <label for="destinationAddress">Destination Address</label>
-              <input type="text" id="destinationAddress" class="form-control" name="destinationAddress">
-            </div>
-            <div>
-              <label for="notesForDriver" class="form-label">Notes to Driver (Optional)</label>
-              <textarea name="notesForDriver" id="notesForDriver" class="form-control" rows="5"></textarea>
-            </div>
-            <div class="mt-2 d-flex justify-content-center p-1" style="height: 100%;">
-              <button type="button" class="btn btn-success">Get Estimates</button>
-            </div>
-          </form>
-          <div id="map" class="card m-3 col-lg-6"
-            style="background-position: center; background-image: url('./resources/images/GoogleMap.webp'); height: 400px;">
           </div>
+        </div>
+        <div id="providers" class="m-5">
+
         </div>
       </div>
     </div>
@@ -89,10 +95,15 @@
 </body>
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script>
+  
   function resizeMap() {
     let width = $("#map").width() + "px";
     $("#map").height(width);
   }
+
+  $("#estimates").click( function(){
+    $("#providers").load("ride-confirmation.html");
+  });
 
   resizeMap();
 
