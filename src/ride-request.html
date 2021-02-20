@@ -6,18 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schedule an Appointment</title>
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
-  <style>
-
-  </style>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 
 <body>
   <main>
     <div class="d-flex flex-row">
-      <div id="navigation">
-
-      </div>
+      <div id="navigation"></div>
       <div class="flex-grow-1 bg-light">
         <div class="card p-3">
           <h2>Schedule an Appointment</h2>
@@ -82,18 +77,17 @@
               </div>
             </form>
             <div id="map" class="card col ml-3"
-              style="background-position: center; background-image: url('./resources/images/GoogleMap.webp'); height: 400px;">
+              style="background-position: center; background-image: url('../resources/images/GoogleMap.webp'); height: 400px;">
             </div>
           </div>
         </div>
-        <div id="providers" class="mb-5 mx-5">
-
-        </div>
+        <div id="providers" class="mb-5 mx-5"></div>
       </div>
     </div>
   </main>
 </body>
-<script src="node_modules/jquery/dist/jquery.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
   function resizeMap() {
@@ -102,13 +96,14 @@
   }
 
   $("#estimates").click( function(){
-    $("#providers").load("ride-confirmation.html");
+    $("#providers").load("../components/ride-confirmation.html");
   });
 
   resizeMap();
 
   window.addEventListener("resize", resizeMap);
-  $("#navigation").load("navigation-side-bar.html");
+  $("#navigation").load("../components/navigation-side-bar.html");
+
 </script>
 
 </html>
