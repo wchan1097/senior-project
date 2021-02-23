@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./trans-app-dashboard-stylesheet.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header-id">Welcome CSR-X</div>
+    <div class="dashboard-id">
+      <nav class="bg-dark d-flex flex-column" style="height: 100%; width: 300px;">
+        <p id="transportationTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9868; TRANSPORTATION</span><span>&#10096;</span></p>
+        <div id="transportationContainer" class="d-flex flex-column overflow-hidden" style="height: 0px; background-color: rgba(0,0,0,.1);">
+          <a href="#" class="text-white p-3">Dashboard</a>
+          <a href="#" class="text-white pb-3 px-3">Request A Ride</a>
+          <a href="#" class="text-white pb-3 px-3">Scheduled Appointments</a>
+          <a href="#" class="text-white pb-3 px-3">Completed Appointments</a>
+          <a href="#" class="text-white pb-3 px-3">Logs</a>
+        </div>
+    
+        <p id="userManagementTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9998; USER MANAGEMENT</span><span>&#10096;</span></p>
+        <div id="userManagementContainer" class="d-flex flex-column overflow-hidden" style="height: 0px; background-color: rgba(0,0,0,.1);">
+          <a href="#" class="text-white p-3">User Settings</a>
+          <a href="#" class="text-white pb-3 px-3">Log Out</a>
+        </div>
+      </nav>
+     <script src="node_modules/jquery/dist/jquery.js"></script> 
+  <script>
+    $("#transportationTab").click(function(){
+      $("#transportationContainer").height(($("#transportationContainer").height() == 0) ? "216px" : "0");
+
+    });
+    $("#userManagementTab").click(function(){
+      $("#userManagementContainer").height(($("#userManagementContainer").height() == 0) ? "96px" : "0");
+    });
+  </script>
+    </div>
+    <div class="request-a-ride-id"><a href="#" style="color: white; font-size: 30px;">Request A Ride</a></div>
+    <div class="scheduled-trips-id">Scheduled Trips </div>
+    <div class="active-rides-id">Active Rides</div>
+    <div class="previous-trips-id">Previous Trips</div>
+    <div class="scheduled-trips-number-today-id">13<span id="day">Today</span></div>
+    <div class="active-rides-number-today-id">72 <span id="day">Today</span></div>
+    <div class="previous-trips-number-today-id">95 <span id="day">Today</span></div>
+    <div class="check-availability-id"><a href="#" style="color: white; font-size: 26px;">Check Availability</a></div>
+    <!--table-->
+    <div class="rtma-table">
+      <table id="rtma-table-id">
+        <tr>
+          <th>Rider Name</th>
+          <th>Trip Date</th>
+          <th>Market Segment</th>
+          <th>Alert Type</th>
+        </tr>
+        <tr>
+          <td>Marcus Hill</td>
+          <td>December 1, 2018</td>
+          <td>Workers' Compensation</td>
+          <td id="alertType1" >On Track</td>
+        </tr>
+        <tr>
+          <td>Steven Smith</td>
+          <td>December 1, 2018</td>
+          <td>Workers' Compensation</td>
+          <td id="alertType1" >On Track</td>
+        </tr>
+        <tr>
+          <td>Billy Knapp</td>
+          <td>December 1, 2018</td>
+          <td>Workers' Compensation</td>
+          <td id="alertType2" >Rider Not Show</td>
+        </tr>
+        <tr>
+          <td>Amy Topler</td>
+          <td>December 1, 2018</td>
+          <td>Workers' Compensation</td>
+          <td id="alertType1" >On Track</td>
+        </tr>
+        <tr>
+          <td>Courtney Jeffer</td>
+          <td>December 1, 2018</td>
+          <td>Workers' Compensation</td>
+          <td id="alertType1" >On Track</td>
+        </tr>
+        <tr>
+          <td>Cat Halpert</td>
+          <td>December 1, 2018</td>
+          <td>Workers' Compensation</td>
+          <td id="alertType1" >On Track</td>
+        </tr>
+        <tr>
+          <td>Jeff Plimpkins</td>
+          <td>December 1, 2018</td>
+          <td>Workers' Compensation</td>
+          <td id="alertType2" >On Track</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+
+
+</body>
+</html>
