@@ -13,24 +13,64 @@
       -webkit-appearance: none;
       margin: 0;
     }
+
     input[type="number"] {
       -moz-appearance: textfield;
     }
-    
+
+    nav {
+      padding-top: 60px;
+      user-select: none;
+    }
+
+    #transportationTab,
+    #userManagementTab {
+      cursor: pointer;
+    }
+
+    #transportationContainer,
+    #userManagementContainer {
+      transition: .3s;
+    }
   </style>
 </head>
 
 <body style=" height: 100vh;">
-  <main >
+  <main>
     <div class="d-flex flex-row">
-      <div id="navigation" style="height: 100vh"></div>
+      <div id="navigation" style="height: 100vh">
+        <nav class="bg-dark d-flex flex-column" style="height: 100%; width: 300px;">
+          <p id="transportationTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9868;
+              TRANSPORTATION</span><span>&#10096;</span></p>
+          <div id="transportationContainer" class="d-flex flex-column overflow-hidden"
+            style="height: 0px; background-color: rgba(0,0,0,.1);">
+            <a href="../src/dashboard.html" class="text-white p-3">Dashboard</a>
+            <a href="../src/ride-request.html" class="text-white pb-3 px-3">Request A Ride</a>
+            <a href="#" class="text-white pb-3 px-3">Scheduled Appointments</a>
+            <a href="../src/completed-appointments.html" class="text-white pb-3 px-3">Completed Appointments</a>
+            <a href="#" class="text-white pb-3 px-3">Logs</a>
+          </div>
+
+          <p id="userManagementTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9998;
+              USER MANAGEMENT</span><span>&#10096;</span></p>
+          <div id="userManagementContainer" class="d-flex flex-column overflow-hidden"
+            style="height: 0px; background-color: rgba(0,0,0,.1);">
+            <a href="#" class="text-white p-3">User Settings</a>
+            <a href="#" class="text-white pb-3 px-3">Log Out</a>
+          </div>
+        </nav>
+      </div>
       <div class="flex-grow-1 bg-light">
-        <div class="card p-3">
-          <h2>Completed Appointments</h2>
+        <div class="card p-3" style="
+        background-color: rgb(241, 235, 235);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        ">
+          <h2 class="text-center" style="padding: 10px;">Completed Appointments</h2>
         </div>
         <div>
           <div id="filter" class="card m-3 p-3">
-            <h3 class="m-0 d-flex justify-content-between"><span>Filter Appointments</span><span style="transform: rotate(-90deg)">&#10094;</span></h3>
+            <h3 class="m-0 d-flex justify-content-between"><span>Filter Appointments</span><span
+                style="transform: rotate(-90deg)">&#10094;</span></h3>
           </div>
           <div id="recordTable" class="card m-3 p-3">
             <p class="m-0 text-center">Showing <span>1 of 1 </span>Records</p>
@@ -61,7 +101,8 @@
             <div class="d-flex">
               <button class="btn btn-primary mr-1">First</button>
               <button class="btn btn-primary mx-1">Previous</button>
-              <input class="rounded mx-1 border border-secondary" id="pageNum" name="pageNum" type="number" value="1" style="height: 100%; width: 40px; text-align: center;">
+              <input class="rounded mx-1 border border-secondary" id="pageNum" name="pageNum" type="number" value="1"
+                style="height: 100%; width: 40px; text-align: center;">
               <button class="btn btn-primary mx-1">Next</button>
               <button class="btn btn-primary ml-1">Last</button>
             </div>
@@ -75,8 +116,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-  $("#navigation").load("../components/navigation-side-bar.html");
+  $("#transportationTab").click(function () {
+    $("#transportationContainer").height(($("#transportationContainer").height() == 0) ? "216px" : "0");
 
+  });
+  $("#userManagementTab").click(function () {
+    $("#userManagementContainer").height(($("#userManagementContainer").height() == 0) ? "96px" : "0");
+  });
 </script>
 
 </html>

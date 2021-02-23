@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,44 +8,54 @@
   <title>Sidebar</title>
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
   <style>
-    nav{
+    nav {
       padding-top: 60px;
       user-select: none;
     }
-    #transportationTab, #userManagementTab{
+
+    #transportationTab,
+    #userManagementTab {
       cursor: pointer;
     }
-    #transportationContainer, #userManagementContainer{
+
+    #transportationContainer,
+    #userManagementContainer {
       transition: .3s;
     }
   </style>
 </head>
+
 <body>
   <nav class="bg-dark d-flex flex-column" style="height: 100%; width: 300px;">
-    <p id="transportationTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9868; TRANSPORTATION</span><span>&#10096;</span></p>
-    <div id="transportationContainer" class="d-flex flex-column overflow-hidden" style="height: 0px; background-color: rgba(0,0,0,.1);">
-      <a href="#" class="text-white p-3">Dashboard</a>
+    <p id="transportationTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9868;
+        TRANSPORTATION</span><span>&#10096;</span></p>
+    <div id="transportationContainer" class="d-flex flex-column overflow-hidden"
+      style="height: 0px; background-color: rgba(0,0,0,.1);">
+      <a href="../src/dashboard.html" class="text-white p-3">Dashboard</a>
       <a href="../src/ride-request.html" class="text-white pb-3 px-3">Request A Ride</a>
       <a href="#" class="text-white pb-3 px-3">Scheduled Appointments</a>
       <a href="../src/completed-appointments.html" class="text-white pb-3 px-3">Completed Appointments</a>
       <a href="#" class="text-white pb-3 px-3">Logs</a>
     </div>
 
-    <p id="userManagementTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9998; USER MANAGEMENT</span><span>&#10096;</span></p>
-    <div id="userManagementContainer" class="d-flex flex-column overflow-hidden" style="height: 0px; background-color: rgba(0,0,0,.1);">
+    <p id="userManagementTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9998; USER
+        MANAGEMENT</span><span>&#10096;</span></p>
+    <div id="userManagementContainer" class="d-flex flex-column overflow-hidden"
+      style="height: 0px; background-color: rgba(0,0,0,.1);">
       <a href="#" class="text-white p-3">User Settings</a>
       <a href="#" class="text-white pb-3 px-3">Log Out</a>
     </div>
   </nav>
   <script src="node_modules/jquery/dist/jquery.js"></script>
   <script>
-    $("#transportationTab").click(function(){
+    $("#transportationTab").click(function () {
       $("#transportationContainer").height(($("#transportationContainer").height() == 0) ? "216px" : "0");
 
     });
-    $("#userManagementTab").click(function(){
+    $("#userManagementTab").click(function () {
       $("#userManagementContainer").height(($("#userManagementContainer").height() == 0) ? "96px" : "0");
     });
   </script>
 </body>
+
 </html>
