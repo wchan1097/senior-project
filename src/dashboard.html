@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 
-<body>
+<body style="height: 100vh;">
 
-  <div class="d-flex">
+  <div class="d-flex align-items-stretch flex-row" style="overflow: hidden; height: 100%;">
     <div>
-      <div id="dashboard-id">
+      <div id="dashboard-id" >
         <nav class="bg-dark d-flex flex-column" style="height: 100%; width: 300px;">
           <p id="transportationTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9868; TRANSPORTATION</span><span>&#10096;</span></p>
           <div id="transportationContainer" class="d-flex flex-column overflow-hidden" style="height: 0px; background-color: rgba(0,0,0,.1);">
@@ -32,10 +32,10 @@
         </nav>
       </div>
     </div>
-    <div class="flex-grow-1">
+    <div class="flex-grow-1 bg-light" style="height: 100%;">
       <div class="header-id">Welcome CSR-X</div>
-      <div class="dashboard-container bg-light">
-        <div class="request-a-ride-id"><a href="#" style="color: white; font-size: 30px;">Request A Ride</a></div>
+      <div class="dashboard-container">
+        <div class="request-a-ride-id"><a href="./ride-request.html" style="color: white; font-size: 30px;">Request A Ride</a></div>
         <div class="scheduled-trips-id">Scheduled Trips </div>
         <div class="active-rides-id">Active Rides</div>
         <div class="previous-trips-id">Previous Trips</div>
@@ -99,7 +99,6 @@
 
         </div>
       </div>
-
     </div>
   </div>
   <script src="../node_modules/jquery/dist/jquery.js"></script>

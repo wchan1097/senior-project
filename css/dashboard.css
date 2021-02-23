@@ -6,6 +6,7 @@
   grid-template-rows: auto;
 }
 
+
 .header-id {
   grid-column: 1 / 6;
   background-color: rgb(241, 235, 235);
