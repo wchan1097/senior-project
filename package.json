@@ -1,0 +1,30 @@
+{
+  "name": "seniorproject",
+  "version": "1.0.0",
+  "description": "fellows consulting group health transportation app prototype.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.6.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.17",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wchan1097/SeniorProject.git"
+  },
+  "author": "Group 6.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wchan1097/SeniorProject/issues"
+  },
+  "homepage": "https://github.com/wchan1097/SeniorProject#readme"
+}
