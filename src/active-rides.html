@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./active-rides.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Active Ride</title>
+</head>
+
+<body>
+    <div class="active-rides-page-container">
+        <div class="active-rides-page-header"> Welcome CSR-X </div>
+        <div class="active-rides-page-logout"><button class="#"> Log out</button></div>
+        <div class="active-rides-page-nav-bar">
+            <nav class="bg-dark d-flex flex-column" style="height: 100%; width: 300px;">
+                <p id="transportationTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9868; TRANSPORTATION</span><span>&#10096;</span></p>
+                <div id="transportationContainer" class="d-flex flex-column overflow-hidden" style="height: 0px; background-color: rgba(0,0,0,.1);">
+                    <a href="#" class="text-white p-3">Dashboard</a>
+                    <a href="../src/ride-request.html" class="text-white pb-3 px-3">Request A Ride</a>
+                    <a href="#" class="text-white pb-3 px-3">Scheduled Appointments</a>
+                    <a href="../src/completed-appointments.html" class="text-white pb-3 px-3">Completed Appointments</a>
+                    <a href="#" class="text-white pb-3 px-3">Logs</a>
+                </div>
+
+                <p id="userManagementTab" class="text-white m-0 d-flex flex-row justify-content-between p-3"><span>&#9998; USER MANAGEMENT</span><span>&#10096;</span></p>
+                <div id="userManagementContainer" class="d-flex flex-column overflow-hidden" style="height: 0px; background-color: rgba(0,0,0,.1);">
+                    <a href="#" class="text-white p-3">User Settings</a>
+                    <a href="#" class="text-white pb-3 px-3">Log Out</a>
+                </div>
+            </nav>
+            <script src="../node_modules/jquery/dist/jquery.js"></script>
+            <script>
+                $("#transportationTab").click(function() {
+                    $("#transportationContainer").height(($("#transportationContainer").height() == 0) ? "216px" : "0");
+
+                });
+                $("#userManagementTab").click(function() {
+                    $("#userManagementContainer").height(($("#userManagementContainer").height() == 0) ? "96px" : "0");
+                });
+            </script>
+        </div>
+        <div class="active-rides-dashboard" style="font-size: 22px;">Active Ride <br>
+            <a href="#" style="font-size: 14px;">Dashboard</a></div>
+        <div class="active-rides-page-filter-rides">Filter Rides</div>
+        <div class="active-rides-page-request-a-ride">Request A Ride<a href="#" style="font-size: 30px; color: black;">+</a></div>
+        <div class="active-rides-page-pending-return-request">Pending Return Request</div>
+        <div class="empty-cell">Empty Cell</div>
+    </div>
+    <div class="active-rides-page-footer">
+        <div class="d-flex justify-content-end m-3">
+            <button class="btn btn-primary mr-1" style="background: white; color: black;">First</button>
+            <button class="btn btn-primary mx-1" style="background: white; color: black;">Previous</button>
+            <input class="rounded mx-1 border border-secondary" id="pageNum" name="pageNum" type="number" value="1" style="height: 100%; width: 40px; text-align: center;">
+            <button class="btn btn-primary mx-1" style="background: white; color: black;">Next</button>
+            <button class="btn btn-primary ml-1" style="background: white; color: black;">Last</button>
+        </div>
+    </div>
+</body>
+
+</html>
