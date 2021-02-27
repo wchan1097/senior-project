@@ -1,0 +1,116 @@
+
+.dashboard-container{
+    display: grid;
+  /*  height: 100%; */
+    grid-template-columns: .1fr 1fr .6fr .6fr .6fr;
+    grid-template-rows: auto; 
+    grid-gap: 10px 20px;
+    background-color: grey;
+    margin-right: 40px;
+    
+ }
+.header-id{
+    grid-column: 1 / 6;
+    background-color: rgb(241, 235, 235);
+    text-align: center;
+    padding: 10px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+.dashboard-id {
+    grid-row: 2 / 8;
+}
+.nav{
+  padding-top: 60px;
+  user-select: none;
+}
+#transportationTab, #userManagementTab{
+  cursor: pointer;
+}
+#transportationContainer, #userManagementContainer{
+  transition: .3s;
+
+}
+.request-a-ride-id{
+    grid-row: span 3;
+    padding: 40px;
+    font-size: 24px;
+    text-align: left;
+    background-color: rgb(9, 143, 121);
+}
+.scheduled-trips-id,
+.active-rides-id,
+.previous-trips-id{
+    text-align: left;
+    background-color: white;
+    padding: 18px;
+    margin: 5px;
+
+
+}
+
+.scheduled-trips-number-today-id,
+.active-rides-number-today-id, 
+.previous-trips-number-today-id
+{
+    grid-row: span 2;
+    text-align: left;
+    font-size: 30px;
+    margin: 5px;
+    background-color: white;
+    padding: 25px;
+
+}
+#day{
+  font-size: small;
+  padding-left: 10px;
+  color: rgb(0, 174, 255);
+}
+.check-availability-id {
+    grid-column-start: 2;
+    grid-row-start: 5;
+    font-size: 20px;
+    padding: 25px;
+    margin: 5px;
+    background-color: rgb(9, 143, 121);
+
+}
+
+.rtma-table{
+    display: grid;
+    grid-column-start: 2;
+    grid-area:5 /2 / 4 / span 4;
+    grid-row: span 6;
+    background-color: white;
+    text-decoration: lawngreen ;
+    
+}
+#rtma-table-id {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    background-color: white;
+    border: 5px solid grey; */
+   padding: 20px;
+}
+td, th{
+    border-top: 2px solid white;
+
+    text-align: left;
+    padding: 20px;
+    height: 100%;
+}
+tr:nth-child(even){
+  background-color: #dddddd;
+ 
+}
+#alertType1 {
+
+  background-position-x: 200px;
+  text-orientation: sideways-right;
+  background-color: rgb(0, 205, 171);
+}
+#alertType2{
+  background: red;
+}
+   
+
