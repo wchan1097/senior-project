@@ -1,0 +1,16 @@
+#transportationContainer, #userManagementContainer{
+  transition: .3s;
+}
+nav{
+  height: 100%; 
+  width: 300px;
+  padding-top: 60px;
+}
+#transportationContainer{
+  height: 0;
+  background-color: rgba(0,0,0,.1);
+}
+#userManagementContainer{
+  height: 0;
+  background-color: rgba(0,0,0,.1);
+}

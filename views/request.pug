@@ -4,30 +4,17 @@ html
     title= title
     meta(charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    style
-      include ../node_modules/bootstrap/dist/css/bootstrap.css
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    link(rel="stylesheet" href="dist/css/bootstrap.css")
     link(rel="stylesheet" href="css/request.css")
+    link(rel="stylesheet" href="css/nav-bar.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="dist/js/bootstrap.js")
+    script(src="js/nav-bar.js" defer="true")
   body
     main
       div.d-flex.flex-row
         div#navigation
-          nav.bg-dark.d-flex.flex-column
-            p#transportationTab.text-white.m-0.d-flex.flex-row.justify-content-between.p-3
-              span &#9868; TRANSPORTATION
-              span &#10096;
-            div#transportationContainer.d-flex.flex-column.overflow-hidden
-              a(href="#").text-white.p-3 Dashboard
-              a(href="#").text-white.pb-3.px-3 Request A Ride
-              a(href="#").text-white.pb-3.px-3 Scheduled Appointments
-              a(href="#").text-white.pb-3.px-3 Active Rides
-              a(href="#").text-white.pb-3.px-3 Logs
-            p#userManagementTab.text-white.m-0.d-flex.flex-row.justify-content-between.p-3 
-              span &#9998; USER MANAGEMENT
-              span &#10096;
-            div#userManagementContainer.d-flex.flex-column.overflow-hidden
-              a(href="#").text-white.p-3 User Settings
-              a(href="#").text-white.pb-3.px-3 Log Out
+          include nav-bar.pug
         div.flex-grow-1.bg-light
           div#titleContainer.card.p-3
             h2.text-center Schedule An Appointment
