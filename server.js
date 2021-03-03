@@ -15,13 +15,14 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 	app.use(bodyParser.urlencoded({ extended: true }))
 	const db = client.db('transportation_health_app')
 	const custinfoCollection = db.collection('customerinfo')
+	app.use(express.static("public"))
 	
 	app.listen(3000, function(){
 			console.log('listening on 3000');
 	})
 	
 	app.get('/', function(req, res){
-			res.render('request');
+			res.render('active-rides');
 	})
 	app.get('/ride-request.html', function(req, res){
 			res.sendFile(__dirname + '/src/ride-request.html');

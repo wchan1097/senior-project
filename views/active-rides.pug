@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Active Rides
+    meta(charset="UTF-8" http-equiv="X-US-Compatible" content="IE=edge")
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    link(rel="stylesheet" href="dist/css/bootstrap.css")
+    link(rel="stylesheet", href="css/nav-bar.css")
+    link(rel="stylesheet", href="css/active-rides.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="dist/js/bootstrap.js")
+    script(src="js/nav-bar.js" defer="true")
+  body(style="height: 100vh")
+    div.active-rides-page-container
+      div.active-rides-page-header(style="display: grid; place-items: center center") Welcome CSR-X
+      div.active-rides-page-logout
+        button.btn.btn-outline-primary Log out
+      div.active-rides-page-nav-bar
+        include nav-bar.pug 
+      div.active-rides-dashboard(style="font-size: 22px;")
+        | Active Ride
+        br
+        a(href="#" style="font-size: 14px;") Dashboard
+      div.active-rides-page-filter-rides Filter Rides
+      div.active-rides-page-request-a-ride
+        | Request A Ride
+        a(href="#" style="font-size: 30px; color: black;") +
+      div.active-rides-page-pending-return-request.text-white Pending Return Request
+      //empty cell is just a placeholder for nothing, used to keep pending-return-request in place
+      div.empty-cell Empty Cell
+      div.active-rides-page-footer
+        div.d-flex.justify-content-end.m-3.align-items.stretch
+          button.btn.btn-outline-primary.mr-1(style="background: white; color: black; ") First
+          button.btn.btn-outline-primary.mx-1(style="background: white; color: black; ") Previous
+          input.rounded.mx-1.border.border-secondary#pageNum(name="pageNum", type="number", value="1", style= "width: 40px; text-align: center;")
+          button.btn.btn-outline-primary.mx-1(style="background: white; color: black; ") Next
+          button.btn.btn-outline-primary.ml-1(style="background: white; color: black; ") Last
