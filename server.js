@@ -7,6 +7,8 @@ const app = express()
 MongoClient.connect(url, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
+	app.set('view engine', 'pug');
+	app.set('views','./views');
 	//app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 	//app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 	app.use(express.static(__dirname));
@@ -19,7 +21,7 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 	})
 	
 	app.get('/', function(req, res){
-			res.sendFile(__dirname + '/src/dashboard.html');
+			res.render('request');
 	})
 	app.get('/ride-request.html', function(req, res){
 			res.sendFile(__dirname + '/src/ride-request.html');
@@ -33,3 +35,4 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 	})
 })
 .catch(error => console.error(error))
+
