@@ -1,16 +1,3 @@
-nav{
-  height: 100%; 
-  width: 300px;
-  padding-top: 60px;
-}
-#transportationContainer{
-  height: 0;
-  background-color: rgba(0,0,0,.1);
-}
-#userManagementContainer{
-  height: 0;
-  background-color: rgba(0,0,0,.1);
-}
 #titleContainer{
   background-color: rgb(241, 235, 235);
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -21,8 +8,4 @@ nav{
 #map{
   background-position: center; 
   height: 400px;
-}
-
-#transportationContainer, #userManagementContainer{
-  transition: .3s;
 }
