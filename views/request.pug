@@ -33,23 +33,23 @@ html
             h2.text-center Schedule An Appointment
           div.container-fluid
             div.bg-light.row.g-2.p-5
-              form#patientInformation.card.p-3.mr-3.col
+              form#patientInformation.card.p-3.mr-3.col(action='/test' method='POST')
                 h3.text-center Patient Information
                 div.d-flex.flex-column.my-2
                   label(for="org").form-label Organization
-                  input(type="text" required="true")#org.form-control
+                  input(type="text" name="org" required="true")#org.form-control
                 div.d-flex.flex-column.my-2
                   label(for="tel").form-label Phone Number
-                  input(type="text" required="true")#tel.form-control
+                  input(type="text" name="tel" required="true")#tel.form-control
                 div.d-flex.flex-column.my-2
                   label(for="fname").form-label First Name
-                  input(type="text" required="true")#fname.form-control
+                  input(type="text" name="fname" required="true")#fname.form-control
                 div.d-flex.flex-column.my-2
                   label(for="lname").form-label Last Name
-                  input(type="text" required="true")#lname.form-control
+                  input(type="text" name="lname" required="true")#lname.form-control
                 div.d-flex.flex-column.my-2
                   label(for="fileNumber").form-label File Number
-                  input(type="text" required="true")#fileNumber.form-control
+                  input(type="text" name="filenum" required="true")#fileNumber.form-control
                 h3.text-center.mt-2 Appointment Information
                 div#tripDirContainer.my-2
                   div.form-check
@@ -63,18 +63,18 @@ html
                     label(for="multiLeg").form-check-label Multi Leg
                 div.d-flex.flex-column.my-2
                   label(for="appType").form-label Appointment Type
-                  input(type="text" required="true")#appType.form-control
+                  input(type="text" name="apptype" required="true")#appType.form-control
                 div.d-flex.flex-column.my-2
                   label(for="arrAddr").form-label Arrival Address
-                  input(type="text" required="true")#arrAddr.form-control
+                  input(type="text" name="arraddr" required="true")#arrAddr.form-control
                 div.d-flex.flex-column.my-2
                   label(for="destAddr").form-label Destination Addres
-                  input(type="text" required="true")#destAddr.form-control
+                  input(type="text" name="destaddr" required="true")#destAddr.form-control
                 div.d-flex.flex-column.my-2
                   label(for="notesToDriver").form-label Notes To Driver 
                   textarea(name="notesToDriver" rows="5")#notesToDriver.form-control
                 div.mt-2.d-flex.justify-content-center.p-1.h-100
-                  button(type="button")#estimates.btn.btn-success Get Estimates
-              div(style='background-image: url(images/GoogleMap.webp)')#map.card.col.ml-3
+                  button(type="submit")#estimates.btn.btn-success Get Estimates
+              div(style='background-image: url(/public/images/GoogleMap.webp)')#map.card.col.ml-3
           div#providers.mb-5.mx-5          
     script(src="js/request.js" defer="true")
