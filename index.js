@@ -46,7 +46,7 @@ app.set("view engine", "pug");
 app.use(express.static("public"));
 
 app.get("/", function(req, res) {
-  res.render("dashboard", 
+  res.render("Completed", 
   {title: "Schedule a Ride"});
 })
 
