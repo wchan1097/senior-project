@@ -24,6 +24,7 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 	app.get('/', function(req, res){
 			res.render('active-rides');
 	})
+
 	app.get('/ride-request.html', function(req, res){
 			res.sendFile(__dirname + '/src/ride-request.html');
 	})
