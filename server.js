@@ -16,17 +16,20 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 	const db = client.db('transportation_health_app')
 	const custinfoCollection = db.collection('customerinfo')
 	app.use(express.static("public"))
-	
-	app.listen(3000, function(){
-			console.log('listening on 3000');
-	})
+	var port = process.env.PORT;
+	app.listen(port);
 	
 	app.get('/', function(req, res){
+			res.render('dashboard');
+	})
+	app.get('/request-ride', function(req, res){
+			res.render('request');
+	})
+	app.get('/active-ride', function(req, res){
 			res.render('active-rides');
 	})
-
-	app.get('/ride-request.html', function(req, res){
-			res.sendFile(__dirname + '/src/ride-request.html');
+	app.get('/active-ride', function(req, res){
+			res.render('active-rides');
 	})
 	app.post('/test', (req, res) => {
 		custinfoCollection.insertOne(req.body)
@@ -34,6 +37,14 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 			res.redirect('/')
 		})
 		.catch(error => console.error(error))
+	})
+	app.get('/retrieve-filenum', (req, res) => {
+		//var filenumber = req.body.filenum
+		var filenumber = '82901'
+		custinfoCollection.findOne({filenum: filenumber}, function(err, result){
+			console.log(result)
+		})
+		
 	})
 })
 .catch(error => console.error(error))
