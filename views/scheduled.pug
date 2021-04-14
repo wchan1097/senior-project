@@ -1,0 +1,73 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="dist/css/bootstrap.css")
+    link(rel="stylesheet" href="css/completed.css")
+    link(rel="stylesheet" href="css/nav-bar.css")
+    script(src="dist/css/bootstrap.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="js/nav-bar.js" defer="true")
+    //script(src='server.js')
+  body(style="height: 100vh;")
+    main
+      div.d-flex.flex-row
+        div(style="height: 100vh;")#navigation.bg-dark
+          include nav-bar.pug
+        div.flex-grow-1.bg-light
+          div.card.p-3(style="background-color: rgb(241, 235, 235); font-family: Georgia, 'Times New Roman', Times, serif")
+            h2.text-center(style="padding: 10px;") Scheduled Appointments
+          div#filter.card.m-3.p-3
+            h3.m-0.d-flex.justify-content-between
+              span Filter Appointments
+              span(style="transform: rotate(-90deg)")  
+              #form-group
+                label.slect(name='', type='text' style='font-size:20px;' span) By
+                |
+                |
+                select#form-control(name="Filter Appointments", style='font-size:16px' type="text")
+                  option(value={}, style='text-align:right; font-size: 24px; font-color:red;') &#9759; 
+                  option(value= 'org',style='font-size:16px') Organization
+                  option(value='appointmentType', style='font-size:16px') Appointment Type
+                  option(value='fname', style='font-size:16px') First Name
+                  option(value='lname', style='font-size:16px') Last Name
+                  option(value='tel', style='font-size: 16px') Telephone 
+                  option(value= 'date',style='font-size:16px') Date
+                  option(value='time', style='font-size:16px') Appointment Type
+                  option(value='fileNumber', style='font-size:16px') File Number
+                  option(value='tel', style='font-size: 16px') Telephone 
+                  option(value= 'apointmentTime',style='font-size:16px') Time
+                  option(value='status', style='font-size:16px') Status
+                  option(value='fileNumber', style='font-size:16px') File Number
+          div#recordTable.card.m-3.p-3
+            p.m-0.text-center 
+              | Showing     
+              span=length
+              |  of 
+              span=length
+              |  Records
+            div.d-flex.justify-content-end.mt-3
+            table.table.table.table-striped
+              tr
+                th Organization
+                th Appointment Date
+                th Appointment Time
+                th Telephone
+                th First Name
+                th Last Name
+                th File Number
+                th Status
+              each customer in customerinfo
+                tr.odd(role='row') 
+                  td #{customer.org}
+                  td #{customer.appointmentDate}
+                  td #{customer.appointmentTime}
+                  td #{customer.tel}
+                  td #{customer.fname}
+                  td #{customer.lname} 
+                  td #{customer.fileNumber}
+                  td #{customer.status} 
+                  
+                  
