@@ -20,11 +20,17 @@ html
             h2.text-center Schedule An Appointment
           div.container-fluid
             div.bg-light.row.g-2.p-5
-              form#patientInformation.card.p-3.mr-3.col(action='/test' method='POST')
+              form#patientInformation.card.p-3.mr-3.col(action='' method='POST')
                 h3.text-center Patient Information
                 div.d-flex.flex-column.my-2
                   label(for="org").form-label Organization
                   input(type="text" name="org" required="true")#org.form-control
+                div.d-flex.flex-column.my-2
+                  label(for="appointmentDate").form-label Appointment Date
+                  input(type="date" name="appointmentDate" required="true")#date.form-control
+                div.d-flex.flex-column.my-2
+                  label(for="appointmentTime").form-label Appointment Time
+                  input(type="time" name="appointmentTime" required="true")#time.form-control
                 div.d-flex.flex-column.my-2
                   label(for="tel").form-label Phone Number
                   input(type="text" name="tel" required="true")#tel.form-control
@@ -36,7 +42,7 @@ html
                   input(type="text" name="lname" required="true")#lname.form-control
                 div.d-flex.flex-column.my-2
                   label(for="fileNumber").form-label File Number
-                  input(type="text" name="filenum" required="true")#fileNumber.form-control
+                  input(type="text" name="fileNumber" required="true")#fileNumber.form-control
                 h3.text-center.mt-2 Appointment Information
                 div#tripDirContainer.my-2
                   div.form-check
@@ -49,14 +55,14 @@ html
                     input(type="radio" name="tripDirection")#multiLeg.form-check-input
                     label(for="multiLeg").form-check-label Multi Leg
                 div.d-flex.flex-column.my-2
-                  label(for="appType").form-label Appointment Type
-                  input(type="text" name="apptype" required="true")#appType.form-control
+                  label(for="appointmentType").form-label Appointment Type
+                  input(type="text" name="appointmentType" required="true")#appType.form-control
                 div.d-flex.flex-column.my-2
-                  label(for="arrAddr").form-label Arrival Address
-                  input(type="text" name="arraddr" required="true")#arrAddr.form-control
+                  label(for="arrivalAddress").form-label Arrival Address
+                  input(type="text" name="arrivalAddress" required="true")#arrAddr.form-control
                 div.d-flex.flex-column.my-2
-                  label(for="destAddr").form-label Destination Addres
-                  input(type="text" name="destaddr" required="true")#destAddr.form-control
+                  label(for="destinationAddress").form-label Destination Addres
+                  input(type="text" name="destinationAddress" required="true")#destAddr.form-control
                 div.d-flex.flex-column.my-2
                   label(for="notesToDriver").form-label Notes To Driver 
                   textarea(name="notesToDriver" rows="5")#notesToDriver.form-control
