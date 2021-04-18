@@ -27,8 +27,9 @@ MongoClient.connect(url, { useUnifiedTopology: true })
         app.get("/request-ride", function (req, res) {
             res.render("request");
           });
-      
-          app.post("/request-ride", function (req, res, next) {
+//------------------ Start of Willam's Code---------------------//     
+         
+            app.post("/request-ride", function (req, res, next) {
             const ticket = req.body;
             ticket.status = "upcoming";
             ticket.driverName = "";
@@ -77,7 +78,7 @@ MongoClient.connect(url, { useUnifiedTopology: true })
         
 //---------------------------  End of Willans Code--------------------------------// 
 
-//---------------------------Kiran's Code-----------------------------------------//
+//---------------------------Start of Kiran's Code-----------------------------------------//
         app.get('/active-rides', function(req, res) {
         custinfoCollection.find({status: "active"}).then(result =>{
           console.log(result);
@@ -119,10 +120,18 @@ MongoClient.connect(url, { useUnifiedTopology: true })
                     .catch(error => console.error(error))
             });
         
-//------------------------End of Kirans Code-----------------------------------------------
+            app.get('/retrieve-filenum', (req, res) => {
+                //var filenumber = req.body.filenum
+                var filenumber = '82901'
+                custinfoCollection.findOne({filenum: filenumber}, function(err, result){
+                    console.log(result)
+                })
+                
+            })
+        })  
+//------------------------End of Kiran's Code-----------------------------------------------
     });
-//------------------------ Start of Mohammeds Code ----------------------------------------      
-});
+//------------------------ Start of Mohammed's Code ----------------------------------------      
         app.get('/test', function(req, res) {
             res.render('request', { title: 'Request a Ride' });
         });
@@ -167,4 +176,4 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 
 let customerinfo = module.exports = MongoClient.collection;
 
-//------------------------------------End of Mohammeds added code------------------------------// 
+//------------------------------------End of Mohammed's added code------------------------------// 
