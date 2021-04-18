@@ -9,11 +9,10 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mongo": "^0.1.0",
-    "mongodb": "^3.6.3",
+    "mongodb": "^3.6.4",
     "mongoose": "^5.11.17",
     "pug": "^3.0.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
