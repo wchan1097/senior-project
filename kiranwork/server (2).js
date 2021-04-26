@@ -79,58 +79,49 @@ MongoClient.connect(url, { useUnifiedTopology: true })
 //---------------------------  End of Willans Code--------------------------------// 
 
 //---------------------------Start of Kiran's Code-----------------------------------------//
-        app.get('/active-rides', function(req, res) {
-        custinfoCollection.find({status: "active"}).then(result =>{
-          console.log(result);
-        })
-            res.render('active-rides',{name: result});
+app.get("/", function (req, res)  {
+ var arr =[];
+ var fileActive = "active";
+ var fileUpcoming ="upcoming";
+ var fileCompleted = "completed";
+ var numActive;
+ var numUpcoming;
+ var numCompleted;
+ custinfoCollection.find({status: fileActive}).count (function (err, result)  {
+      if (err){
+      console.log(err);
+    } else {
+    numActive = result;
+    console.log (numActive) ;
+    custinfoCollection.find({ status: fileUpcoming }).count (function (err, result) {
+         if (err) { 
+         console.log(err) ;
+         } else { 
+           numUpcoming = result;
+           console.log (numUpcoming);
+           custinfoCollection.find({status: fileCompleted}).count (function (err, result) {
+                if (err) {
+                console.log (err);  
+                } else {
+                  numCompleted = result;
+                  console.log (numCompleted);
+                  custinfoCollection.find ({"Active Rides"}).limit (5) .toArray (function  ( err, customerinfo) {
+                       if (err) {
+                           console.log (err);
+                       } else {
+                           console.log (customerinfo) ;
+                           res.render ("dashboard", {
+                           active: numActive, 
+                           upcoming: numUpcoming,
+                           completed: numCompleted,
+                           custInfo: customerinfo   
+                          }};
+                       }
+              
 
-            app.get('/completed', function(req, res) {
-                custinfoCollection.find({}).toArray(function(err, customerinfoR) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        res.render('active', {
-                            title: 'Active Rides',
-                            customerinfo: customerinfoR
-    
-                        });
-                        //res.redirect('/');
-    
-                    }
-                    console.log('this is a print form the screen 2' + JSON.stringify(customerinfo));
-    
-                });
-                // gets the count
-                var result_from_mongodb = [];
-                custinfoCollection.countDocuments().then((count) => {
-                    console.log('number of records: ' + count);
-                    result_from_mongodb.push(count);
-                    res.render('active', {
-                        "result": result_from_mongodb
-                    });
-                });
-    
-            });
-            app.post('/test', (req, res) => {
-                custinfoCollection.insertOne(req.body)
-                    .then(result => {
-                        res.redirect('/')
-                    })
-                    .catch(error => console.error(error))
-            });
-        
-            app.get('/retrieve-filenum', (req, res) => {
-                //var filenumber = req.body.filenum
-                var filenumber = '82901'
-                custinfoCollection.findOne({filenum: filenumber}, function(err, result){
-                    console.log(result)
-                })
-                
-            })
-        })  
+                }   
 //------------------------End of Kiran's Code-----------------------------------------------
-    });
+
 //------------------------ Start of Mohammed's Code ----------------------------------------      
         app.get('/test', function(req, res) {
             res.render('request', { title: 'Request a Ride' });
