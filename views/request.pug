@@ -20,11 +20,19 @@ html
             h2.text-center Schedule An Appointment
           div.container-fluid
             div.bg-light.row.g-2.p-5
-              form#patientInformation.card.p-3.mr-3.col(action='/test' method='POST')
+              form#patientInformation.card.p-3.mr-3.col(action='' method='POST')
                 h3.text-center Patient Information
                 div.d-flex.flex-column.my-2
                   label(for="org").form-label Organization
                   input(type="text" name="org" required="true")#org.form-control
+                //div.d-flex.flex.column.my-2
+                #form-group 
+                  label Appointment Date
+                  input.form-control(type="date" name="appointmentDate" required="true")
+                //div.d-flex.flex.column.my-2
+                #form-group 
+                  label Appointment Time
+                  input.form-control(type='Time' name='appointmentTime' required='true')
                 div.d-flex.flex-column.my-2
                   label(for="tel").form-label Phone Number
                   input(type="text" name="tel" required="true")#tel.form-control
@@ -40,13 +48,13 @@ html
                 h3.text-center.mt-2 Appointment Information
                 div#tripDirContainer.my-2
                   div.form-check
-                    input(type="radio" name="tripDirection")#oneWay.form-check-input
+                    input(type="radio" name="tripDirection" value = "one way")#oneWay.form-check-input
                     label(for="oneWay").form-check-label One Way
                   div.form-check
-                    input(type="radio" name="tripDirection")#roundTrip.form-check-input
+                    input(type="radio" name="tripDirection" value = "round trip")#roundTrip.form-check-input
                     label(for="roundTrip").form-check-label Round Trip
                   div.form-check
-                    input(type="radio" name="tripDirection")#multiLeg.form-check-input
+                    input(type="radio" name="tripDirection" value = "multi leg")#multiLeg.form-check-input
                     label(for="multiLeg").form-check-label Multi Leg
                 div.d-flex.flex-column.my-2
                   label(for="appType").form-label Appointment Type
