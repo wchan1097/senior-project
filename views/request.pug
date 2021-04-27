@@ -17,7 +17,7 @@ html
           include nav-bar.pug
         div.flex-grow-1.bg-light
           div#titleContainer.card.p-3
-            h2.text-center Schedule An Appointment
+            h2.text-center Request An Appointment
           div.container-fluid
             div.bg-light.row.g-2.p-5
               form#patientInformation.card.p-3.mr-3.col(action='' method='POST')
@@ -46,13 +46,13 @@ html
                 h3.text-center.mt-2 Appointment Information
                 div#tripDirContainer.my-2
                   div.form-check
-                    input(type="radio" name="tripDirection")#oneWay.form-check-input
+                    input(type="radio" name="tripDirection" value="one way")#oneWay.form-check-input
                     label(for="oneWay").form-check-label One Way
                   div.form-check
-                    input(type="radio" name="tripDirection")#roundTrip.form-check-input
+                    input(type="radio" name="tripDirection" value="round trip")#roundTrip.form-check-input
                     label(for="roundTrip").form-check-label Round Trip
                   div.form-check
-                    input(type="radio" name="tripDirection")#multiLeg.form-check-input
+                    input(type="radio" name="tripDirection" value="multiway trip")#multiLeg.form-check-input
                     label(for="multiLeg").form-check-label Multi Leg
                 div.d-flex.flex-column.my-2
                   label(for="appointmentType").form-label Appointment Type

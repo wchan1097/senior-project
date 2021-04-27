@@ -1,18 +1,20 @@
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
+/* 
 
 .active-rides-page-container {
     height: 100%;
@@ -20,17 +22,16 @@ input[type="number"] {
     grid-template-columns: 1fr 2.8fr 2.9fr 1fr 1fr 1fr 1fr 1fr 1.7fr;
     grid-template-rows: auto;
     grid-gap: 0px 0px;
-    background-color: grey;
-    margin-right: 20px;
 }
 
 .active-rides-page-header {
     display: grid;
-    grid-column: 2 / 9;
+    grid-column: 2 / 10;
     background-color: rgb(209, 209, 212);
     text-align: right;
     padding: 15px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
 
 .active-rides-page-logout {
@@ -46,21 +47,6 @@ input[type="number"] {
     grid-row: 1 / 100;
 }
 
-.nav {
-    padding-top: 60px;
-    user-select: none;
-}
-
-#transportationTab,
-#userManagementTab {
-    cursor: pointer;
-}
-
-#transportationContainer,
-#userManagementContainer {
-    transition: .3s;
-}
-
 .active-rides-dashboard {
     display: grid;
     grid-column: 2;
@@ -68,8 +54,6 @@ input[type="number"] {
     padding: 30px;
     background-color: white;
     text-align: left;
-    border-left: 15px solid grey;
-    border-top: 15px solid grey;
 }
 
 .active-rides-page-filter-rides {
@@ -79,8 +63,13 @@ input[type="number"] {
     padding: 30px;
     background-color: white;
     text-align: left;
-    border-top: 15px solid grey;
-    border-left: 15px solid grey;
+}
+
+.active-rides-table-table {
+    display: table;
+    grid-column: 3/11;
+    grid-row: 2/25;
+    height: 72vh;
 }
 
 .active-rides-page-request-a-ride {
@@ -91,8 +80,6 @@ input[type="number"] {
     padding: 20px;
     background-color: white;
     text-align: center;
-    border-left: 15px solid grey;
-    border-top: 60px solid grey;
 }
 
 .empty-cell {
@@ -103,7 +90,7 @@ input[type="number"] {
     text-align: center;
     color: white;
     padding: 15px;
-    border-left: 15px solid grey;
+    padding-bottom: 15px;
 }
 
 .active-rides-page-pending-return-request {
@@ -115,7 +102,6 @@ input[type="number"] {
     padding-left: 15px;
     background-color: rgb(12, 34, 160);
     text-align: left;
-    border-left: 15px solid grey;
 }
 
 .active-rides-page-footer {
@@ -123,5 +109,4 @@ input[type="number"] {
     grid-column: 6/11;
     grid-row: 20;
     padding-top: 25px;
-    background-color: gray;
-}
+} */
