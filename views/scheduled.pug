@@ -13,13 +13,13 @@ html
     //script(src='server.js')
   body(style="height: 100vh;")
     main
-      div.d-flex.flex-row
-        div(style="height: 100vh;")#navigation.bg-dark
+      div.d-flex.flex-row.align-items-stretch
+        div#navigation.bg-dark
           include nav-bar.pug
         div.flex-grow-1.bg-light
           div.card.p-3(style="background-color: rgb(241, 235, 235); font-family: Georgia, 'Times New Roman', Times, serif")
             h2.text-center(style="padding: 10px;") Scheduled Appointments
-          div#filter.card.m-3.p-3
+          div#filter.card.m-5.p-3
             h3.m-0.d-flex.justify-content-between
               span Filter Appointments
               span(style="transform: rotate(-90deg)")  
@@ -41,7 +41,7 @@ html
                   option(value= 'apointmentTime',style='font-size:16px') Time
                   option(value='status', style='font-size:16px') Status
                   option(value='fileNumber', style='font-size:16px') File Number
-          div#recordTable.card.m-3.p-3
+          div#recordTable.card.m-5.mt-0.p-3
             p.m-0.text-center 
               | Showing     
               span=length
