@@ -20,11 +20,31 @@ html
       div.active-rides-dashboard(style="font-size: 22px;")
         | Active Ride
         br
-        a(href="#" style="font-size: 14px;") Dashboard
+        a(href="/" style="font-size: 14px;") Dashboard
       div.active-rides-page-filter-rides Filter Rides
+      //added to fix the retrieved records from datatbase
+      div.active-rides-table-table(style="background: tan; border: 20px solid grey")
+        style. 
+          tr:nth-child(even){ 
+            background-color: #f2f2f2 
+          }
+        table.table.table.table-striped
+          tr(style="background: olive;")
+            th(style="padding: 15px") Organization
+            th Name
+            th Telephone
+            th Appointment Type
+            th Status
+          each i in customerinfo
+            tr
+              td(style="padding: 15px") #{i.org}
+              td #{i.fname} #{i.lname}
+              td #{i.tel}
+              td #{i.apptype}
+              td #{i.status}
       div.active-rides-page-request-a-ride
         | Request A Ride
-        a(href="#" style="font-size: 30px; color: black;") +
+        a(href="/request-ride" style="font-size: 30px; color: black;") +
       div.active-rides-page-pending-return-request.text-white Pending Return Request
       //empty cell is just a placeholder for nothing, used to keep pending-return-request in place
       div.empty-cell Empty Cell
