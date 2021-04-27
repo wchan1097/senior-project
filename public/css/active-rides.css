@@ -1,18 +1,18 @@
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
-
 
 .active-rides-page-container {
     height: 100%;
@@ -31,6 +31,7 @@ input[type="number"] {
     text-align: right;
     padding: 15px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
 
 .active-rides-page-logout {
@@ -44,21 +45,6 @@ input[type="number"] {
 .active-rides-page-nav-bar {
     display: grid;
     grid-row: 1 / 100;
-}
-
-.nav {
-    padding-top: 60px;
-    user-select: none;
-}
-
-#transportationTab,
-#userManagementTab {
-    cursor: pointer;
-}
-
-#transportationContainer,
-#userManagementContainer {
-    transition: .3s;
 }
 
 .active-rides-dashboard {
@@ -83,6 +69,15 @@ input[type="number"] {
     border-left: 15px solid grey;
 }
 
+.active-rides-table-table {
+    display: table;
+    grid-column: 3/11;
+    grid-row: 2/25;
+    background-color: grey;
+    border-left: 10px gray;
+    height: 72vh;
+}
+
 .active-rides-page-request-a-ride {
     display: grid;
     grid-column: 2;
@@ -103,6 +98,7 @@ input[type="number"] {
     text-align: center;
     color: white;
     padding: 15px;
+    padding-bottom: 15px;
     border-left: 15px solid grey;
 }
 
