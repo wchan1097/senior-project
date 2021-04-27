@@ -18,30 +18,55 @@ html
         div.header-id Welcome CSR-X
         div.dashboard-container
           div.request-a-ride-id
-            a(href="#" style="color: white; font-size: 30px;") Request A Ride
+            a(href="/request-ride" style="color: white; font-size: 30px;") Request A Ride
           div.scheduled-trips-id Scheduled Trips
           div.active-rides-id Active Rides
           div.previous-trips-id Previous Trips
-          div.scheduled-trips-number-today-id 
-            | 13 
+          div.scheduled-trips-number-today-id
+            span=scheduledTrips
+            | 
             span.day Today
-          div.active-rides-number-today-id 
-            | 72 
+          div.active-rides-number-today-id
+            span=activeRides 
+            | 
             span.day Today
           div.previous-trips-number-today-id 
-            | 95 
+            span=previousTrips
+            |
+            |
             span.day Today
           div.check-availability-id
             a(href="#" style="color: white; font-size: 30px;") Check Availability
+          div.total-records
+            p(style=" background-color: white; border-line: 1px") Total Records: #{span=customerinfo.length  }
           div.rtma-table
-            table#rtma-table-id
+            table.rtma-table-id
+              style. 
+                th{
+                  background-color: gray
+                }
               tr
                 th Rider Name
                 th Trip Date 
                 th Market Segment
                 th Alert Type
-              tr
-                td Marcus Hill
-                td December 1, 2018
-                td Workers' Compensation
-                td.alertType1 OnTrack
+              -const alertOne = "active"
+              each customer in customerinfo
+                -const alertTwo = "upcoming"
+                if alertOne === customer.status 
+                  tr
+                    td #{customer.fname} #{ customer.lname}
+                    td=customer.appointmentDate
+                    td=customer.org
+                    td.alertType1 OnTrack
+                
+                if alertTwo === customer.status
+                  tr
+                    td #{customer.fname} #{customer.lname}
+                    td=customer.appointmentDate
+                    td=customer.org
+                    td.alertType2 Not OnTrack 
+                else  
+                  |
+              
+                  
