@@ -37,25 +37,23 @@ html
               option(value='status', style='font-size:16px') Status
               option(value='fileNumber', style='font-size:16px') File Number
         //added to fix the retrieved records from datatbase
-        div.card.active-rides-table-table.mx-5.mb-4.mt-5
-          style. 
-            tr:nth-child(even){ 
-              background-color: #f2f2f2 
-            }
-          table.table.table.table-striped.mb-0
-            tr(style="background: olive;").text-white
-              th(style="padding: 15px") Organization
-              th Name
-              th Telephone
-              th Appointment Type
-              th Status
-            each i in customerinfo
-              tr
-                td(style="padding: 15px") #{i.org}
-                td #{i.fname} #{i.lname}
-                td #{i.tel}
-                td #{i.apptype}
-                td #{i.status}
+        div.card.overflow-hidden.active-rides-table-table.mx-5.mb-4.mt-5
+          table.table.table-striped.mb-0
+            thead
+              tr(style="background: olive;").text-white
+                th(style="border-top: 0") Organization
+                th(style="border-top: 0") Name
+                th(style="border-top: 0") Telephone
+                th(style="border-top: 0") Appointment Type
+                th(style="border-top: 0") Status
+            tbody
+              each i in customerinfo
+                tr
+                  td(style="padding: 15px") #{i.org}
+                  td #{i.fname} #{i.lname}
+                  td #{i.tel}
+                  td #{i.apptype}
+                  td #{i.status}
         div.active-rides-page-footer.px-5
           div.d-flex.justify-content-end.align-items.stretch
             button.btn.btn-outline-primary.mr-1(style="background: white; color: black; ") First
