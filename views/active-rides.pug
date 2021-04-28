@@ -9,12 +9,13 @@ html
     link(rel="stylesheet", href="css/active-rides.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(src="dist/js/bootstrap.js")
+    script(src="js/active-rides.js")
     script(src="js/nav-bar.js" defer="true")
   body
     div.active-rides-page-container.bg-light.d-flex.align-items-stretch
       div.active-rides-page-nav-bar(style="min-height: 100vh")
         include nav-bar.pug 
-      div.flex-grow-1
+      div.flex-grow-1#mainContainer
         div.active-rides-page-header.card.p-3(style="display: grid; place-items: center center; background-color: rgb(241, 235, 235); font-family: Georgia, 'Times New Roman', Times, serif")
           h2.mb-0.text-center(style="padding: 10px;") Active Appointments
         div.d-flex.justify-content-between.px-5.pt-5(style="gap: 20px")
@@ -46,14 +47,23 @@ html
                 th(style="border-top: 0") Telephone
                 th(style="border-top: 0") Appointment Type
                 th(style="border-top: 0") Status
+                th(style="border-top: 0") 
             tbody
-              each i in customerinfo
-                tr
+              each i, index in customerinfo
+                tr(
+                  id=`${index}` 
+                  data-dname=`${i.driverName}` 
+                  data-drating=`${i.driverRating}`
+                  data-dmodel=`${i.driverModel}`
+                  data-dlocationlat=`${i.driverLocation.lat}`
+                  data-dlocationlong=`${i.driverLocation.long}`)
                   td(style="padding: 15px") #{i.org}
                   td #{i.fname} #{i.lname}
                   td #{i.tel}
                   td #{i.apptype}
                   td #{i.status}
+                  td.d-flex.justify-content-end 
+                    button(type="button" style="background: none; border: none; color: blue;" onclick="displayDriverInfo(this)") View Appointment
         div.active-rides-page-footer.px-5
           div.d-flex.justify-content-end.align-items.stretch
             button.btn.btn-outline-primary.mr-1(style="background: white; color: black; ") First
