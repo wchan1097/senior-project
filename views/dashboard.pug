@@ -10,7 +10,7 @@ html
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(src="dist/js/bootstrap.js")
     script(src="js/nav-bar.js" defer="true")
-  body(style="height: 100vh")
+  body(style="height: auto")
     div.d-flex.align-items-stretch.flex-row( style="overflow: hidden; height: 100%;")
       div#dashboard-id
         include nav-bar.pug
@@ -22,15 +22,15 @@ html
           div.scheduled-trips-id Scheduled Trips
           div.active-rides-id Active Rides
           div.previous-trips-id Previous Trips
-          div.scheduled-trips-number-today-id 
-            | 13 
-            span.day Today
+          div.scheduled-trips-number-today-id
+            span=active 
+            span.day  Today
           div.active-rides-number-today-id 
-            | 72 
-            span.day Today
+            span=upcoming
+            span.day  Today
           div.previous-trips-number-today-id 
-            | 95 
-            span.day Today
+            span=completed
+            span.day  Today
           div.check-availability-id
             a(href="#" style="color: white; font-size: 30px;") Check Availability
           div.rtma-table
@@ -40,8 +40,9 @@ html
                 th Trip Date 
                 th Market Segment
                 th Alert Type
-              tr
-                td Marcus Hill
-                td December 1, 2018
-                td Workers' Compensation
-                td.alertType1 OnTrack
+              each customer in custInfo
+                tr
+                  td #{customer.fname} #{customer.lname}
+                  td #{customer.appointmentDate}
+                  td #{customer.appointmentType}
+                  td #{customer.tripDirection}
