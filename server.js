@@ -5,6 +5,28 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+//Creating variables for current date, and tomorrow date
+
+/**
+ * Creating a date one day ahead of current date for the purpose of determining 
+ * whether a trip is onTrack or not. This string will maintain leadin zeros for days and months.
+ */
+
+ var currentDate = new Date();
+ var tomorrowDateString, todayDateString;
+ currentDate.setDate(currentDate.getDate() + 1);
+ tomorrowDateString = (currentDate.getFullYear() + "-" + ("0" + currentDate.getMonth() + 1)).slice(-2) +
+   "-" + ("0" + currentDate.getDate()).slice(-2);
+ 
+ /**
+  * creating a variable 'todayDateString' in which current date is stored in a way that 
+  * the leading zeros of days and months are mainted.
+  */
+ 
+ currentDate.setDate(currentDate.getDate());
+ todayDateString = (currentDate.getFullYear() + "-" + ("0" + currentDate.getMonth() + 1)).slice(-2) +
+   "-" + ("0" + currentDate.getDate()).slice(-2);
+  
 MongoClient.connect(url, { useUnifiedTopology: true })
   .then((client) => {
     console.log("Connected to Database");
@@ -17,7 +39,7 @@ MongoClient.connect(url, { useUnifiedTopology: true })
     const db = client.db("transportation_health_app");
     const custinfoCollection = db.collection("customerinfo");
     app.use(express.static("public"));
-    var port = 3000;
+    var port = process.env.PORT;
     app.listen(port);
 
     app.get("/request-ride", function (req, res) {
@@ -40,52 +62,52 @@ MongoClient.connect(url, { useUnifiedTopology: true })
     });
 
     app.get("/", function (req, res) {
-	  var arr = [];
-	  var fileActive = "active";
-	  var fileUpcoming = "upcoming";
-	  var fileCompleted = "completed";
-	  var numActive;
-	  var numUpcoming;
-	  var numCompleted;
-	  custinfoCollection.find({status: fileActive}).count(function (err, result) {
-		  if (err){
-			console.log(err);
-		  } else {
-			numActive = result;
-			console.log(numActive);
-			custinfoCollection.find({status: fileUpcoming}).count(function (err, result) {
-		        if (err){
-			    console.log(err);
-		        } else {
-			      numUpcoming = result;
-			      console.log(numUpcoming);
-		          custinfoCollection.find({status: fileCompleted}).count(function (err, result) {
-		              if (err){
-			          console.log(err);
-		              } else {
-			            numCompleted = result;
-			            console.log(numCompleted);
-						custinfoCollection.find({}).limit(5).toArray(function (err, customerinfo){
-							if (err){
-								console.log(err);
-							} else {
-								console.log(customerinfo);
-								res.render("dashboard", {
-								active: numActive,
-								upcoming: numUpcoming,
-								completed: numCompleted,
-								custInfo: customerinfo
-								});
-							}
-						});
-			            
-		              } 
-	               });
-		        } 
-			});
-		 } 
-	  });
-    });
+      var arr = [];
+      var fileActive = "active";
+      var fileUpcoming = "upcoming";
+      var fileCompleted = "completed";
+      var numActive;
+      var numUpcoming;
+      var numCompleted;
+      custinfoCollection.find({status: fileActive}).count(function (err, result) {
+        if (err){
+        console.log(err);
+        } else {
+        numActive = result;
+        console.log(numActive);
+        custinfoCollection.find({status: fileUpcoming}).count(function (err, result) {
+              if (err){
+            console.log(err);
+              } else {
+              numUpcoming = result;
+              console.log(numUpcoming);
+                custinfoCollection.find({status: fileCompleted}).count(function (err, result) {
+                    if (err){
+                  console.log(err);
+                    } else {
+                    numCompleted = result;
+                    console.log(numCompleted);
+              custinfoCollection.find({}).limit(5).toArray(function (err, customerinfo){
+                if (err){
+                  console.log(err);
+                } else {
+                  console.log(customerinfo);
+                  res.render("dashboard", {
+                  active: numActive,
+                  upcoming: numUpcoming,
+                  completed: numCompleted,
+                  custInfo: customerinfo
+                  });
+                }
+              });
+                    
+                    } 
+                   });
+              } 
+        });
+       } 
+      });
+      });
 
     app.get("/scheduled", function (req, res) {
       var arr = [];
@@ -113,7 +135,14 @@ MongoClient.connect(url, { useUnifiedTopology: true })
     });
 
     app.get("/active-ride", function (req, res) {
-      res.render("active-rides");
+      custinfoCollection.find({ status: 'active' }).toArray(function (err, customerinfoG) {
+        if (err) { console.log('Cannot get active-rides page: ' + err); } else {
+          res.render('active-rides', {
+            title: 'Active Rides',
+            customerinfo: customerinfoG
+          })
+        }
+      })
     });
 
   })
