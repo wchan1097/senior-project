@@ -19,8 +19,8 @@ html
         div.active-rides-page-header.card.p-3(style="display: grid; place-items: center center; background-color: rgb(241, 235, 235); font-family: Georgia, 'Times New Roman', Times, serif")
           h2.text-center(style="padding: 10px;") Active Appointments
         div.d-flex.justify-content-between.px-5.pt-5(style="gap: 20px")
-          a.card.active-rides-page-request-a-ride.p-3(href="/request-ride") Dashboard
-          a.card.active-rides-page-request-a-ride.p-3.bg-primary.text-white(href="/request-ride") Request A Ride
+          a.card.p-3(href="/request-ride") Dashboard
+          a.card.p-3.bg-primary.text-white(href="/request-ride") Request A Ride
           div.flex-grow-1.card.active-rides-page-filter-rides.p-3.d-flex.justify-content-between.flex-row
             | Filter Rides
             select#form-control(name="Filter Appointments", style='font-size:16px' type="text")
@@ -64,7 +64,7 @@ html
                   td #{i.status}
                   td.d-flex.justify-content-end 
                     button(type="button" style="background: none; border: none; color: blue;" onclick="displayDriverInfo(this)") View Appointment
-        div.active-rides-page-footer.px-5
+        div.px-5
           div.d-flex.justify-content-end.align-items.stretch
             button.btn.btn-outline-primary.mr-1(style="background: white; color: black; ") First
             button.btn.btn-outline-primary.mx-1(style="background: white; color: black; ") Previous
