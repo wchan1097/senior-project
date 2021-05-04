@@ -15,7 +15,8 @@ html
       div#dashboard-id
         include nav-bar.pug
       div.flex-grow-1.bg-light(style="height: 100%")
-        div.header-id Welcome CSR-X
+        div.header-id.card.p-3
+          h2(style="padding: 10px") Welcome CSR-X
         div.dashboard-container
           div.request-a-ride-id
             a(href="/request-ride" style="color: white; font-size: 30px;") Request A Ride
@@ -40,8 +41,9 @@ html
                 th Trip Date 
                 th Market Segment
                 th Alert Type
-              tr
-                td Marcus Hill
-                td December 1, 2018
-                td Workers' Compensation
-                td.alertType1 OnTrack
+              each customer in custInfo
+                tr
+                  td #{customer.fname} #{customer.lname}
+                  td #{customer.appointmentDate}
+                  td #{customer.appointmentType}
+                  td #{customer.tripDirection}
