@@ -9,29 +9,65 @@ html
     link(rel="stylesheet", href="css/active-rides.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(src="dist/js/bootstrap.js")
+    script(src="js/active-rides.js")
     script(src="js/nav-bar.js" defer="true")
-  body(style="height: 100vh")
-    div.active-rides-page-container
-      div.active-rides-page-header(style="display: grid; place-items: center center") Welcome CSR-X
-      div.active-rides-page-logout
-        button.btn.btn-outline-primary Log out
-      div.active-rides-page-nav-bar
+  body
+    div.active-rides-page-container.bg-light.d-flex.align-items-stretch
+      div.active-rides-page-nav-bar(style="min-height: 100vh")
         include nav-bar.pug 
-      div.active-rides-dashboard(style="font-size: 22px;")
-        | Active Ride
-        br
-        a(href="#" style="font-size: 14px;") Dashboard
-      div.active-rides-page-filter-rides Filter Rides
-      div.active-rides-page-request-a-ride
-        | Request A Ride
-        a(href="#" style="font-size: 30px; color: black;") +
-      div.active-rides-page-pending-return-request.text-white Pending Return Request
-      //empty cell is just a placeholder for nothing, used to keep pending-return-request in place
-      div.empty-cell Empty Cell
-      div.active-rides-page-footer
-        div.d-flex.justify-content-end.m-3.align-items.stretch
-          button.btn.btn-outline-primary.mr-1(style="background: white; color: black; ") First
-          button.btn.btn-outline-primary.mx-1(style="background: white; color: black; ") Previous
-          input.rounded.mx-1.border.border-secondary#pageNum(name="pageNum", type="number", value="1", style= "width: 40px; text-align: center;")
-          button.btn.btn-outline-primary.mx-1(style="background: white; color: black; ") Next
-          button.btn.btn-outline-primary.ml-1(style="background: white; color: black; ") Last
+      div.flex-grow-1#mainContainer
+        div.active-rides-page-header.card.p-3(style="display: grid; place-items: center center; background-color: rgb(241, 235, 235); font-family: Georgia, 'Times New Roman', Times, serif")
+          h2.mb-0.text-center(style="padding: 10px;") Active Appointments
+        div.d-flex.justify-content-between.px-5.pt-5(style="gap: 20px")
+          a.card.active-rides-page-request-a-ride.p-3(href="/request-ride") Dashboard
+          a.card.active-rides-page-request-a-ride.p-3.bg-primary.text-white(href="/request-ride") Request A Ride
+          div.flex-grow-1.card.active-rides-page-filter-rides.p-3.d-flex.justify-content-between.flex-row
+            | Filter Rides
+            select#form-control(name="Filter Appointments", style='font-size:16px' type="text")
+              option(value={}, style='text-align:right; font-size: 24px; font-color:red;') &#9759; 
+              option(value= 'org',style='font-size:16px') Organization
+              option(value='appointmentType', style='font-size:16px') Appointment Type
+              option(value='fname', style='font-size:16px') First Name
+              option(value='lname', style='font-size:16px') Last Name
+              option(value='tel', style='font-size: 16px') Telephone 
+              option(value= 'date',style='font-size:16px') Date
+              option(value='time', style='font-size:16px') Appointment Type
+              option(value='fileNumber', style='font-size:16px') File Number
+              option(value='tel', style='font-size: 16px') Telephone 
+              option(value= 'apointmentTime',style='font-size:16px') Time
+              option(value='status', style='font-size:16px') Status
+              option(value='fileNumber', style='font-size:16px') File Number
+        //added to fix the retrieved records from datatbase
+        div.card.overflow-hidden.active-rides-table-table.mx-5.mb-4.mt-5
+          table.table.table-striped.mb-0
+            thead
+              tr(style="background: olive;").text-white
+                th(style="border-top: 0") Organization
+                th(style="border-top: 0") Name
+                th(style="border-top: 0") Telephone
+                th(style="border-top: 0") Appointment Type
+                th(style="border-top: 0") Status
+                th(style="border-top: 0") 
+            tbody
+              each i, index in customerinfo
+                tr(
+                  id=`${index}` 
+                  data-dname=`${i.driverName}` 
+                  data-drating=`${i.driverRating}`
+                  data-dmodel=`${i.driverModel}`
+                  data-dlocationlat=`${i.driverLocation.lat}`
+                  data-dlocationlong=`${i.driverLocation.long}`)
+                  td(style="padding: 15px") #{i.org}
+                  td #{i.fname} #{i.lname}
+                  td #{i.tel}
+                  td #{i.apptype}
+                  td #{i.status}
+                  td.d-flex.justify-content-end 
+                    button(type="button" style="background: none; border: none; color: blue;" onclick="displayDriverInfo(this)") View Appointment
+        div.active-rides-page-footer.px-5
+          div.d-flex.justify-content-end.align-items.stretch
+            button.btn.btn-outline-primary.mr-1(style="background: white; color: black; ") First
+            button.btn.btn-outline-primary.mx-1(style="background: white; color: black; ") Previous
+            input.rounded.mx-1.border.border-secondary#pageNum(name="pageNum", type="number", value="1", style= "width: 40px; text-align: center;")
+            button.btn.btn-outline-primary.mx-1(style="background: white; color: black; ") Next
+            button.btn.btn-outline-primary.ml-1(style="background: white; color: black; ") Last
