@@ -82,7 +82,6 @@ MongoClient.connect(url, {
           console.log(err);
         } else {
           numActive = result;
-          console.log(numActive);
           custinfoCollection.find({
             status: fileUpcoming
           }).count(function (err, result) {
