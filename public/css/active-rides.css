@@ -1,127 +1,29 @@
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
+#ReservationPopUp{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+}
 
-.active-rides-page-container {
-    height: 100%;
+#ReservationPopUp > div:nth-child(2) {
     display: grid;
-    grid-template-columns: 1fr 2.8fr 2.9fr 1fr 1fr 1fr 1fr 1fr 1.7fr;
-    grid-template-rows: auto;
-    grid-gap: 0px 0px;
-    background-color: grey;
-    margin-right: 20px;
-}
-
-.active-rides-page-header {
-    display: grid;
-    grid-column: 2 / 9;
-    background-color: rgb(209, 209, 212);
-    text-align: right;
-    padding: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.active-rides-page-logout {
-    display: grid;
-    background-color: rgb(209, 209, 212);
-    text-align: left;
-    padding: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.active-rides-page-nav-bar {
-    display: grid;
-    grid-row: 1 / 100;
-}
-
-.nav {
-    padding-top: 60px;
-    user-select: none;
-}
-
-#transportationTab,
-#userManagementTab {
-    cursor: pointer;
-}
-
-#transportationContainer,
-#userManagementContainer {
-    transition: .3s;
-}
-
-.active-rides-dashboard {
-    display: grid;
-    grid-column: 2;
-    grid-row: 2;
-    padding: 30px;
-    background-color: white;
-    text-align: left;
-    border-left: 15px solid grey;
-    border-top: 15px solid grey;
-}
-
-.active-rides-page-filter-rides {
-    display: grid;
-    grid-column: 2;
-    grid-row: 3;
-    padding: 30px;
-    background-color: white;
-    text-align: left;
-    border-top: 15px solid grey;
-    border-left: 15px solid grey;
-}
-
-.active-rides-page-request-a-ride {
-    display: grid;
-    grid-column: 2;
-    font-size: 30px;
-    grid-row: 5 /8;
-    padding: 20px;
-    background-color: white;
-    text-align: center;
-    border-left: 15px solid grey;
-    border-top: 60px solid grey;
-}
-
-.empty-cell {
-    display: grid;
-    grid-column: 2;
-    grid-row: 8;
-    background-color: white;
-    text-align: center;
-    color: white;
-    padding: 15px;
-    border-left: 15px solid grey;
-}
-
-.active-rides-page-pending-return-request {
-    display: grid;
-    grid-column: 3/4;
-    font-size: 14px;
-    grid-row: 8;
-    place-items: center start;
-    padding-left: 15px;
-    background-color: rgb(12, 34, 160);
-    text-align: left;
-    border-left: 15px solid grey;
-}
-
-.active-rides-page-footer {
-    display: grid;
-    grid-column: 6/11;
-    grid-row: 20;
-    padding-top: 25px;
-    background-color: gray;
+    grid-template-columns: 1fr 1fr;
 }
