@@ -41,13 +41,13 @@ html
         div.card.overflow-hidden.active-rides-table-table.mx-5.mb-4.mt-5
           table.table.table-striped.mb-0
             thead
-              tr(style="background: olive;").text-white
+              tr(style="background: olive; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr))").text-white
                 th(style="border-top: 0") Organization
                 th(style="border-top: 0") Name
                 th(style="border-top: 0") Telephone
                 th(style="border-top: 0") Appointment Type
                 th(style="border-top: 0") Status
-                th(style="border-top: 0") 
+                th(style="border-top: 0")
             tbody
               each i, index in customerinfo
                 tr(
@@ -56,14 +56,14 @@ html
                   data-drating=`${i.driverRating}`
                   data-dmodel=`${i.driverModel}`
                   data-dlocationlat=`${i.driverLocation.lat}`
-                  data-dlocationlong=`${i.driverLocation.long}`)
+                  data-dlocationlong=`${i.driverLocation.long}` style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr))")
                   td(style="padding: 15px") #{i.org}
                   td #{i.fname} #{i.lname}
                   td #{i.tel}
                   td #{i.apptype}
                   td #{i.status}
-                  td.d-flex.justify-content-end 
-                    button(type="button" style="background: none; border: none; color: blue;" onclick="displayDriverInfo(this)") View Appointment
+                  td
+                    button(type="button" style="background: none; border: none; color: blue; padding: 0;" onclick="displayDriverInfo(this)") View Appointment
         div.px-5
           div.d-flex.justify-content-end.align-items.stretch
             button.btn.btn-outline-primary.mr-1(style="background: white; color: black; ") First

@@ -17,10 +17,6 @@
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-#dashboard-id {
-  height: 100%;
-}
-
 nav{
   padding-top: 60px;
 }
@@ -127,7 +123,6 @@ nav{
 td,
 th {
   border-top: 2px solid white;
-
   text-align: left;
   padding: 20px;
   height: 100%;
