@@ -26,7 +26,9 @@ currentDate.setDate(currentDate.getDate());
 todayDateString = (currentDate.getFullYear() + "-" + ("0" + currentDate.getMonth() + 1)).slice(-2) +
   "-" + ("0" + currentDate.getDate()).slice(-2);
 //connect mongodb
-MongoClient.connect(url, { useUnifiedTopology: true })
+MongoClient.connect(url, {
+    useUnifiedTopology: true
+  })
   .then((client) => {
     console.log("Connected to Database");
     app.set("view engine", "pug");
@@ -34,7 +36,9 @@ MongoClient.connect(url, { useUnifiedTopology: true })
     //app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
     //app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
     app.use(express.static(__dirname));
-    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.urlencoded({
+      extended: true
+    }));
     const db = client.db("transportation_health_app");
     const custinfoCollection = db.collection("customerinfo");
     app.use(express.static("public"));
@@ -64,28 +68,47 @@ MongoClient.connect(url, { useUnifiedTopology: true })
       is an active status
     */
     app.get("/", function (req, res) {
-      var scheculedTripArr = [];
-      var activeRiedArr = [];
-      var previousTripArr = [];
-      custinfoCollection.find({}).toArray(function (err, customerinfoD) {
+      var arr = [];
+      var fileActive = "active";
+      var fileUpcoming = "upcoming";
+      var fileCompleted = "completed";
+      var numActive;
+      var numUpcoming;
+      var numCompleted;
+      custinfoCollection.find({
+        status: fileActive
+      }).count(function (err, result) {
         if (err) {
-          console.log("Cannot get dashboard page. " + err);
+          console.log(err);
         } else {
-          custinfoCollection.find({ status: 'active' }).count().then((ar_count) => {
-            activeRiedArr.push(ar_count);
-            custinfoCollection.find({ status: 'completed' }).count().then((pt_count) => {
-              previousTripArr.push(pt_count);
-              custinfoCollection.find({ status: 'upcoming' }).count().then((st_count) => {
-                scheculedTripArr.push(st_count);
-                res.render("dashboard", {
-                  title: "Dashboard",
-                  scheduledTrips: st_count,
-                  customerinfo: customerinfoD,
-                  activeRides: ar_count,
-                  previousTrips: pt_count
-                });
+          numActive = result;
+          custinfoCollection.find({
+            status: fileUpcoming
+          }).count(function (err, result) {
+            if (err) {
+              console.log(err);
+            } else {
+              numUpcoming = result;
+              custinfoCollection.find({
+                status: fileCompleted
+              }).count(function (err, result) {
+                if (err) {} else {
+                  numCompleted = result;
+                  custinfoCollection.find({}).limit(5).toArray(function (err, customerinfo) {
+                    if (err) {
+                      console.log(err);
+                    } else {
+                      res.render("dashboard", {
+                        active: numActive,
+                        upcoming: numUpcoming,
+                        completed: numCompleted,
+                        custInfo: customerinfo
+                      });
+                    }
+                  });
+                }
               });
-            });
+            }
           });
         }
       });
@@ -102,7 +125,9 @@ MongoClient.connect(url, { useUnifiedTopology: true })
         } else {
           arr = customerinfoR;
           var result_from_mongodb = [];
-          custinfoCollection.find({ status: 'upcoming' }).count().then((count) => {
+          custinfoCollection.find({
+            status: 'upcoming'
+          }).count().then((count) => {
             result_from_mongodb.push(count);
             res.render("scheduled", {
               result: result_from_mongodb,
@@ -116,8 +141,12 @@ MongoClient.connect(url, { useUnifiedTopology: true })
     });
     // Active Rides page where only rides whose status is 'active' is displayed
     app.get("/active-rides", function (req, res) {
-      custinfoCollection.find({ status: 'active' }).toArray(function (err, customerinfoG) {
-        if (err) { console.log('Cannot get active-rides page: ' + err); } else {
+      custinfoCollection.find({
+        status: 'active'
+      }).toArray(function (err, customerinfoG) {
+        if (err) {
+          console.log('Cannot get active-rides page: ' + err);
+        } else {
           res.render('active-rides', {
             title: 'Active Rides',
             customerinfo: customerinfoG
