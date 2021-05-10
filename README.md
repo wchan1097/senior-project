@@ -1,1 +1,4 @@
 # SeniorProject
+
+
+# Motivation
