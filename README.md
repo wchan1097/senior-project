@@ -32,7 +32,7 @@
  | William Chan | Project Manager | Managed the project, major contributer to frontend development, integration, and documentation |
  |Brandon Dotson | Team Member | Developed backend and contributed to the project integration, and documentation |
  | Kiran Sivakumar | Team Member | Contributed to the project integration and documentation |
- | Mohammad Asif | Team Member | Contriuted to frontend development, project integeration, and documentation |
+ | Mohammad Asif | Team Member | Contributed to frontend development, project integeration, and documentation |
  
  ## Acknowledgment
  _Special thanks to_: 
