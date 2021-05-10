@@ -35,7 +35,7 @@
  | Mohammad Asif | Team Member | Contriuted to frontend development, project integeration, and documentation |
  
  ## Acknowledgment
- -Special thanks to: -
+ ### Special thanks to: 
  -Dr. W. Eric Wong Professor at UTD, instructor for our senior project
  -Linghuan Hu Teaching Assistant at UTD, TA for our senior project
  -Dr. Thomas Hill from Fellow Consulting Group, mentor and sponsor for our senior project
